@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch, useSelector } from "react-redux";
+import StudentList from "./components/StudentList";
+import { useEffect, useState } from "react";
+import AddData from "./components/addData";
+import Display from "./components/Display";
+
+
 
 function App() {
+  const { studentsdata} = useSelector((state) => state.studentState);
+  // const {studentsdata}=useSelector((state) => state.studentsState);
+
+  // useEffect(()=>{
+  //  <StudentList></StudentList>
+  // },[studentsdata])
+  const dispatch = useDispatch();
+
+  const [buttonValue, setButtonValue] = useState(false);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+      <Display/>
+      {/* <StudentList></StudentList> */}
+   </>
   );
 }
 
